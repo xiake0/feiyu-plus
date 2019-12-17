@@ -8,10 +8,10 @@
 		<version>2.1.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.bookstore</groupId>
-	<artifactId>bookstore</artifactId>
+	<groupId>com.feiyu-plus</groupId>
+	<artifactId>feiyu-plus</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bookstore</name>
+	<name>feiyu-plus</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -19,11 +19,22 @@
 	</properties>
 
 	<dependencies>
+
+		<!--alibaba-->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.10</version>
 		</dependency>
 
+		<!--Mybatis Plus-->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>2.1.9</version>
+		</dependency>
+
+		<!--热更新-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -54,23 +65,11 @@
 			<version>1.18.4</version>
 		</dependency>
 
-		<!-- MybatisPlus -->
-		<dependency>
-			<groupId>com.baomidou</groupId>
-			<artifactId>mybatis-plus-boot-starter</artifactId>
-			<version>2.3.3</version>
-		</dependency>
-
 		<!--<dependency>-->
 		<!--<groupId>org.springframework.boot</groupId>-->
 		<!--<artifactId>spring-boot-starter-security</artifactId>-->
 		<!--</dependency>-->
 
-		<!--thymeleaf-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
 		<!--Rabbitmq-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

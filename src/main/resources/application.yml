@@ -1,0 +1,28 @@
+server:
+  port: 9001
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/feiyu-plus?characterEncoding=utf8&useSSL=false&useTimeZone=true&serverTimezone=GMT%2b8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+      username: root
+      password: myroot
+
+# Swagger界面内容配置
+swagger:
+  title: feiyu-plus 后台API接口文档
+  description: feiyu-plus-admin Api Documentation
+  version: 1.0.0
+  termsOfServiceUrl:
+  contact:
+    name: xiake
+    url:
+    email: 1020775653@qq.com
+
+mybatis-plus:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.modules.sys.entity
+  configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
