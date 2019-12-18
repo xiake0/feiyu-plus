@@ -3,6 +3,7 @@ package com.base;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.enums.FieldFill;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -20,6 +21,7 @@ public class BaseEntity implements Serializable {
     @TableField(value = "id")
     private String id;
 
+    @JsonIgnore
     @TableField(value = "create_time", fill = FieldFill.INSERT)
     private Date createTime;
 
