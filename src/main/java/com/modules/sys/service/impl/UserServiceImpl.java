@@ -22,4 +22,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public User getByUsername(String username) {
         return userMapper.getByUsername(username);
     }
+
+    @Override
+    public void addUser(User user) {
+        userMapper.insert(user);
+    }
 }

@@ -5,10 +5,7 @@ import com.modules.sys.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: xiake
@@ -28,5 +25,11 @@ public class UserController {
     @ApiOperation(value = "分页获取")
     public User getUser(String username){
         return userService.getByUsername(username);
+    }
+
+    @PostMapping(value = "/add")
+    @ApiOperation(value = "增加用户")
+    public void addUser(@RequestBody User user){
+        userService.addUser(user);
     }
 }

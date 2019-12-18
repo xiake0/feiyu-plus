@@ -1,10 +1,10 @@
 package com.modules.sys.entity;
 
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.base.BaseEntity;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
-import java.io.Serializable;
 /**
  * @Author: xiake
  * @Date: 2019/12/17 22:13
@@ -12,7 +12,8 @@ import java.io.Serializable;
  **/
 @Data
 @TableName(value = "t_user")
-public class User implements Serializable{
+@ApiModel(value = "用户表")
+public class User extends BaseEntity{
 
 
     @ApiModelProperty("用户名")

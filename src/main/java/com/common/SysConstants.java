@@ -44,8 +44,6 @@ public final class SysConstants {
 
     public final static String BUY_HAMMER_RECORD_= "buy_hammer";
 
-    //提现管理
-
     public final static double MONEY_TO_CREDIT = 10;
 
     public final static double CREDIT_TO_POINT = 0.6;
