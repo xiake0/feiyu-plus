@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
  * @Date: 2019/12/17 22:54
  * @Description:
  **/
+@SuppressWarnings("all")
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService{
 

@@ -5,10 +5,13 @@ import com.common.SysConstants;
 import com.utils.SnowFlakeUtil;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
+
 import java.util.Date;
 
 /**
  * ctrl+alt+L格式化代码
+ * 自动字段填充的组件配置
+ *
  * @Author: xiake
  * @Date: 2019/12/18 23:41
  * @Description:
