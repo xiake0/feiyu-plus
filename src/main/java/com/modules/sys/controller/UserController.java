@@ -23,13 +23,13 @@ public class UserController {
     @PostMapping(value = "/get")
     @ResponseBody
     @ApiOperation(value = "分页获取")
-    public User getUser(String username){
+    public User getUser(String username) {
         return userService.getByUsername(username);
     }
 
     @PostMapping(value = "/add")
     @ApiOperation(value = "增加用户")
-    public void addUser(@RequestBody User user){
+    public void addUser(@RequestBody User user) {
         userService.addUser(user);
     }
 }

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  **/
 @SuppressWarnings("all")
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService{
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Autowired
     private UserMapper userMapper;

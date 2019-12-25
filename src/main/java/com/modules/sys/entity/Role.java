@@ -12,11 +12,14 @@ import lombok.Data;
  **/
 @Data
 @ApiModel(value = "角色表")
-public class Role extends BaseEntity{
+public class Role extends BaseEntity {
 
     @ApiModelProperty(value = "角色名")
     private String name;
 
     @ApiModelProperty(value = "描述")
     private String description;
+
+    @ApiModelProperty(value = "")
+    private String s;
 }

@@ -5,6 +5,7 @@ import com.base.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
 /**
  * @Author: xiake
  * @Date: 2019/12/17 22:13
@@ -13,7 +14,7 @@ import lombok.Data;
 @Data
 @TableName(value = "t_user")
 @ApiModel(value = "用户表")
-public class User extends BaseEntity{
+public class User extends BaseEntity {
 
 
     @ApiModelProperty("用户名")

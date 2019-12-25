@@ -13,5 +13,5 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 @SuppressWarnings(value = "all")
-public class RoleServiceImpl extends ServiceImpl<RoleMapper,Role> implements RoleService{
+public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements RoleService {
 }

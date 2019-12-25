@@ -8,5 +8,5 @@ import com.modules.sys.entity.Role;
  * @Date: 2019/12/22 22:02
  * @Description:
  **/
-public interface RoleService extends IService<Role>{
+public interface RoleService extends IService<Role> {
 }

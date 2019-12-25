@@ -10,7 +10,7 @@ import lombok.Data;
  * @Description:
  **/
 @Data
-public class UserRole extends BaseEntity{
+public class UserRole extends BaseEntity {
 
     @ApiModelProperty(value = "用户id")
     private String userId;

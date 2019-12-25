@@ -40,15 +40,15 @@ public final class SysConstants {
 
     public final static String WITHDRAW_RECORD = "withdraw";
 
-    public final static String RECHARGE_RECORD= "recharge";
+    public final static String RECHARGE_RECORD = "recharge";
 
-    public final static String BUY_HAMMER_RECORD_= "buy_hammer";
+    public final static String BUY_HAMMER_RECORD_ = "buy_hammer";
 
     public final static double MONEY_TO_CREDIT = 10;
 
     public final static double CREDIT_TO_POINT = 0.6;
 
-    public final static double POINT_TO_CREDIT= 1;
+    public final static double POINT_TO_CREDIT = 1;
 
     public final static double POINT_TO_MONEY = 0.1;
 

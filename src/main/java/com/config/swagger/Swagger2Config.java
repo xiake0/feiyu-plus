@@ -18,6 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * http://swagger.io
  * 访问localhost:9001/swagger-ui.html
+ *
  * @author xiake
  */
 @Slf4j
@@ -46,6 +47,7 @@ public class Swagger2Config {
 
     @Value("${swagger.contact.email}")
     private String email;
+
     @Bean
     public Docket createRestApi() {
 

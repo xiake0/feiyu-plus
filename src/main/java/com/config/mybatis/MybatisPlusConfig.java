@@ -24,6 +24,7 @@ public class MybatisPlusConfig {
 
     /**
      * 自动填充功能
+     *
      * @return
      */
     @Bean

@@ -8,5 +8,5 @@ import com.modules.sys.entity.Role;
  * @Date: 2019/12/22 22:01
  * @Description:
  **/
-public interface RoleMapper extends BaseMapper<Role>{
+public interface RoleMapper extends BaseMapper<Role> {
 }
