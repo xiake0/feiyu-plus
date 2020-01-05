@@ -9,7 +9,7 @@ import com.modules.sys.entity.User;
  * @Description:
  **/
 public interface UserService extends IService<User> {
-    User getByUsername(String username);
+    User getUserByUsername(String username);
 
     void addUser(User user);
 }

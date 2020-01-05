@@ -1,5 +1,6 @@
 package com.modules.sys.entity;
 
+import com.baomidou.mybatisplus.annotations.TableName;
 import com.base.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -10,6 +11,7 @@ import lombok.Data;
  * @Description:
  **/
 @Data
+@TableName(value = "t_user_role")
 public class UserRole extends BaseEntity {
 
     @ApiModelProperty(value = "用户id")

@@ -6,6 +6,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * @Author: xiake
  * @Date: 2019/12/17 22:13
@@ -44,4 +46,9 @@ public class User extends BaseEntity {
     @ApiModelProperty(value = "用户头像")
     private String avatar;
 
+    @ApiModelProperty(value = "用户拥有的角色")
+    private List<Role> roles;
+
+    @ApiModelProperty(value = "用户拥有的权限")
+    private List<Menu> permissions;
 }

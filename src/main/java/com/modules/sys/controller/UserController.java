@@ -24,7 +24,7 @@ public class UserController {
     @ResponseBody
     @ApiOperation(value = "分页获取")
     public User getUser(String username) {
-        return userService.getByUsername(username);
+        return userService.getUserByUsername(username);
     }
 
     @PostMapping(value = "/add")
