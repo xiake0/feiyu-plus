@@ -22,7 +22,7 @@ public class UserController {
 
     @PostMapping(value = "/get")
     @ResponseBody
-    @ApiOperation(value = "分页获取")
+    @ApiOperation(value = "获取")
     public User getUser(String username) {
         return userService.getUserByUsername(username);
     }
