@@ -1,10 +1,13 @@
 package com.modules.sys.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.base.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * @Author: xiake
@@ -12,7 +15,7 @@ import lombok.Data;
  * @Description:
  **/
 @Data
-@ApiModel(value = "角色表")
+@ApiModel(value = "角色")
 @TableName(value = "t_role")
 public class Role extends BaseEntity {
 
@@ -22,6 +25,7 @@ public class Role extends BaseEntity {
     @ApiModelProperty(value = "描述")
     private String description;
 
-    @ApiModelProperty(value = "")
-    private String s;
+    @ApiModelProperty(value = "角色权限")
+    @TableField(exist = false)
+    private List<Menu> permissions;
 }

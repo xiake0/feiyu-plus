@@ -1,5 +1,6 @@
 package com.modules.sys.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.base.BaseEntity;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +16,7 @@ import java.util.List;
  **/
 @Data
 @TableName(value = "t_user")
-@ApiModel(value = "用户表")
+@ApiModel(value = "用户")
 public class User extends BaseEntity {
 
 
@@ -47,8 +48,10 @@ public class User extends BaseEntity {
     private String avatar;
 
     @ApiModelProperty(value = "用户拥有的角色")
+    @TableField(exist = false)
     private List<Role> roles;
 
     @ApiModelProperty(value = "用户拥有的权限")
+    @TableField(exist = false)
     private List<Menu> permissions;
 }

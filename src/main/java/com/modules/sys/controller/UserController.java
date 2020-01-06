@@ -27,9 +27,4 @@ public class UserController {
         return userService.getUserByUsername(username);
     }
 
-    @PostMapping(value = "/add")
-    @ApiOperation(value = "增加用户")
-    public void addUser(@RequestBody User user) {
-        userService.addUser(user);
-    }
 }
