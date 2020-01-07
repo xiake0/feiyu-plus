@@ -1,7 +1,7 @@
 package com.config.mybatis;
 
 import com.baomidou.mybatisplus.mapper.MetaObjectHandler;
-import com.common.SysConstants;
+import com.common.constant.SysConstants;
 import com.utils.SnowFlakeUtil;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;

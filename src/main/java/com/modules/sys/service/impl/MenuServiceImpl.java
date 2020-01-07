@@ -6,6 +6,7 @@ import com.modules.sys.mapper.MenuMapper;
 import com.modules.sys.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,12 +22,13 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
     private MenuMapper menuMapper;
 
     //将result里的List<Role>补充
+    @Transactional
     @Override
     public List<Menu> getAllMenu() {
         List<Menu> result=menuMapper.getMenu();
         result.forEach(item->{
             item.setRoles(menuMapper.getRoleByMenuId(item.getId()));
         });
-        return null;
+        return result;
     }
 }

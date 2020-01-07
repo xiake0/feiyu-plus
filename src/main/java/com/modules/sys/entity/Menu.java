@@ -3,7 +3,7 @@ package com.modules.sys.entity;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.base.BaseEntity;
-import com.common.SysConstants;
+import com.common.constant.SysConstants;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

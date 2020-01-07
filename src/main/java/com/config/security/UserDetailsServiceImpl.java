@@ -14,10 +14,14 @@ import org.springframework.stereotype.Component;
  * @Description:
  **/
 @Component
-public class UserDetailsServicesImpl implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserMapper userMapper;
+
+    public User getCurrentUser() {
+        return null;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
