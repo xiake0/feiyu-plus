@@ -1,6 +1,7 @@
 package com.config.security;
 
 import com.common.utils.ResultUtil;
+import com.common.utils.UserDetailsUtils;
 import com.common.vo.Result;
 import com.config.security.permission.AuthenticationAccessDeniedHandler;
 import com.config.security.permission.MetadataSource;
@@ -60,6 +61,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/login_p",
+                "index.html",
+                "static/**",
                 "/swagger/**",
                 "/v2/api-docs",
                 "/swagger-ui.html",
@@ -111,7 +114,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     @Override
                     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
                         httpServletResponse.setContentType("application/json;charset=utf-8");
-                        Result<Object> result = new ResultUtil<Object>().setData(userDetailsService.getCurrentUser());
+                        Result<Object> result = new ResultUtil<Object>().setData(UserDetailsUtils.getCurrentUserDetails());
                         ObjectMapper om = new ObjectMapper();
                         PrintWriter out = httpServletResponse.getWriter();
                         out.write(om.writeValueAsString(result));

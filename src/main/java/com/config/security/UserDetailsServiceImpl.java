@@ -1,7 +1,7 @@
 package com.config.security;
 
 import com.modules.sys.entity.User;
-import com.modules.sys.mapper.UserMapper;
+import com.modules.sys.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserService userService;
 
     public User getCurrentUser() {
         return null;
@@ -25,7 +25,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        User user = userMapper.getUserByUsername(s);
+        User user = userService.getUserByUsername(s);
         return new SecurityUserDetails(user);
     }
 }

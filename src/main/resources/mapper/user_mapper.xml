@@ -9,8 +9,8 @@
         <!--<result column="realName" jdbcType="VARCHAR" property="realName" />-->
     <!--</resultMap>-->
 
-    <select id="getByUsername" resultType="com.modules.sys.entity.User" parameterType="java.lang.String">
-        select * from t_user where username = #{username} limit 1;
-    </select>
+    <!--<select id="getByUsername" resultType="com.modules.sys.entity.User" parameterType="java.lang.String">-->
+        <!--select * from t_user where username = #{username} limit 1;-->
+    <!--</select>-->
 
 </mapper>

@@ -15,6 +15,4 @@ public interface UserMapper extends BaseMapper<User> {
     @Select("select * from t_user where username = #{username} limit 1;")
     User getUserByUsername(@Param("username") String username);
 
-    Integer insert(User user);
-
 }

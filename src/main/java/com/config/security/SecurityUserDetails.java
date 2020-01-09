@@ -1,5 +1,6 @@
 package com.config.security;
 
+import com.alibaba.druid.util.StringUtils;
 import com.modules.sys.entity.Role;
 import com.modules.sys.entity.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -31,8 +32,14 @@ public class SecurityUserDetails extends User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        for (Role role : this.getRoles()) {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        List<Role> roles = this.getRoles();
+        if(roles!=null && roles.size()>0){
+            // lambda表达式
+            roles.forEach(item -> {
+                if(!StringUtils.isEmpty(item.getName())){
+                    authorities.add(new SimpleGrantedAuthority(item.getName()));
+                }
+            });
         }
         return authorities;
     }

@@ -9,4 +9,6 @@ import com.modules.sys.entity.Role;
  * @Description:
  **/
 public interface RoleService extends IService<Role> {
+
+
 }

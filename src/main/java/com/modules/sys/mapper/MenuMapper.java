@@ -19,6 +19,7 @@ public interface MenuMapper extends BaseMapper<Menu> {
             "t.create_by,t.update_by,t.update_time from t_menu t")
     List<Menu> getMenu();
 
-    @Select("select * from t_role,t_role_menu where t_role.id = t_role_menu.role_id and menu_id = #{menuId}")
+    @Select("select * from t_role,t_role_menu where t_role.id = t_role_menu.role_id and " +
+            "menu_id = #{menuId}")
     List<Role> getRoleByMenuId(String menuId);
 }

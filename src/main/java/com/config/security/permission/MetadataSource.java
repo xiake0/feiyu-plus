@@ -32,6 +32,7 @@ public class MetadataSource implements FilterInvocationSecurityMetadataSource {
     @Override
     public Collection<ConfigAttribute> getAttributes(Object o) throws IllegalArgumentException {
         String requestUrl = ((FilterInvocation) o).getRequestUrl();
+        System.out.println(requestUrl);
         List<Menu> menus = menuService.getAllMenu();
         for (Menu menu : menus) {
             //url匹配
