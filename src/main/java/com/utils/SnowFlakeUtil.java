@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 雪花算法
  * 原作者 zzxadi https://github.com/zzxadi/Snowflake-IdWorker
- * @author
+ * @author  xiake
  */
 @Slf4j
 public class SnowFlakeUtil {
