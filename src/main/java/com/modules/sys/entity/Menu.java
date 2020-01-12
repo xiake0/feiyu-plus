@@ -47,6 +47,9 @@ public class Menu extends BaseEntity {
     @ApiModelProperty(value = "排序值")
     private Integer sortOrder;
 
+    @ApiModelProperty(value = "前端组件")
+    private String component;
+
     @ApiModelProperty("父主键")
     private String parentId;
 

@@ -1,6 +1,7 @@
 server:
   port: 9001
-
+  servlet:
+    context-path: /admin
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -24,5 +25,17 @@ swagger:
 mybatis-plus:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.modules.sys.entity
+  global-config:
+    db-column-underline: true
   configuration:
-      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+#  configuration:
+#      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#打印Sql日志
+logging:
+  level:
+    com:
+      modules:
+        sys:
+          mapper: debug

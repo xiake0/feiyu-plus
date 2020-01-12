@@ -38,9 +38,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public User getUserByUsername(String username) {
         User user = userMapper.getUserByUsername(username);
         System.out.println(user);
+        System.out.println(user.getId());
         List<Role> roles = roleMapper.getRolesByUserId(user.getId());
         System.out.println(roles);
-        //Todo 需添加异常处理
+        //TODO 需添加异常处理
         if (null != roles || roles.size() > 0) {
             user.setRoles(roles);
         }

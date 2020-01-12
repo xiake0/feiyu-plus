@@ -11,7 +11,7 @@ public final class SysConstants {
 
     public static int STATUS_ERROR = 0;
 
-    public static String PERMISSION_OPERATION = "";
+//    public static String PERMISSION_OPERATION = "";
 
     public static String USER_STATUS_LOCK = "";
 
@@ -55,4 +55,34 @@ public final class SysConstants {
     public final static double CREDIT_TO_HAMMER = 0.05;
 
     public final static double CREDIT_TO_POINT_ENTERTAINMENT = 0.8;
+
+    /**
+     * 页面类型权限
+     */
+    public final static Integer PERMISSION_PAGE = 0;
+
+    /**
+     * 操作类型权限
+     */
+    public final static Integer PERMISSION_OPERATION = 1;
+
+    /**
+     * 1级菜单父id
+     */
+    public final static String PARENT_ID = "0";
+
+    /**
+     * 1级菜单
+     */
+    public final static Integer LEVEL_ONE = 1;
+
+    /**
+     * 2级菜单
+     */
+    public final static Integer LEVEL_TWO = 2;
+
+    /**
+     * 3级菜单
+     */
+    public final static Integer LEVEL_THREE = 3;
 }

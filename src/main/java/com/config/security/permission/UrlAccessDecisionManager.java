@@ -35,11 +35,20 @@ public class UrlAccessDecisionManager implements AccessDecisionManager {
                 } else return;
             }
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-            authorities.forEach(authority -> {
+
+            /**有毒的lambda**/
+//             authorities.forEach(item -> {
+//                System.out.println(item.getAuthority());
+//                if (item.getAuthority().equals(needRole)) {
+//                    return;
+//                }
+//            });
+            for (GrantedAuthority authority : authorities) {
+                System.out.println(authority.getAuthority());
                 if (authority.getAuthority().equals(needRole)) {
                     return;
                 }
-            });
+            }
         }
         throw new AccessDeniedException("权限不足");
     }

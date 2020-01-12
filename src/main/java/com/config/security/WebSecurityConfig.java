@@ -60,7 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/login_p",
+        web.ignoring().antMatchers("/sys/user/login_p",
                 "index.html",
                 "static/**",
                 "/swagger/**",
@@ -82,7 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             }
         })
                 .and()
-                .formLogin().loginPage("/login_p").loginProcessingUrl("/sys/login")
+                .formLogin().loginPage("/sys/user/login_p").loginProcessingUrl("/sys/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .failureHandler(new AuthenticationFailureHandler() {
@@ -90,7 +90,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
                         httpServletResponse.setContentType("application/json;charset=utf-8");
                         Result<Object> result = null;
-                        System.out.println(e.getMessage() + " " + e.getLocalizedMessage());
                         if (e instanceof BadCredentialsException || e instanceof UsernameNotFoundException) {
                             result = new ResultUtil<Object>().setErrorMsg(401, "账号或密码输入错误");
                         } else if (e instanceof LockedException) {

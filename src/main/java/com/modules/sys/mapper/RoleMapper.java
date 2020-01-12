@@ -18,4 +18,8 @@ public interface RoleMapper extends BaseMapper<Role> {
             "t1.create_by,t1.update_by,t1.update_time FROM t_role t1,t_user_role t2 " +
             "WHERE t1.id=t2.role_id AND t2.user_id=#{userId}")
     List<Role> getRolesByUserId(@Param("userId") String userId);
+
+    @Select("select * from t_role,t_role_menu where t_role.id = t_role_menu.role_id and " +
+            "menu_id = #{menuId}")
+    List<Role> getRoleByMenuId(String menuId);
 }
