@@ -11,8 +11,6 @@ public final class SysConstants {
 
     public static int STATUS_ERROR = 0;
 
-//    public static String PERMISSION_OPERATION = "";
-
     public static String USER_STATUS_LOCK = "";
 
     public static String USER_STATUS_NORMAL = "";
@@ -22,6 +20,7 @@ public final class SysConstants {
     public static Integer MEMBER_OPEN = 1;
 
     public static Integer MEMBER_FORBIDDEN = 0;
+    
     public final static Integer APPLYING = 1;
 
     public final static Integer APPROVAL = 2;
