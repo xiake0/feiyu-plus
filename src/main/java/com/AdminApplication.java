@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.modules.sys.mapper")
+@MapperScan("com.modules.*.mapper")
 public class AdminApplication {
 
     public static void main(String[] args) {

@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * http://swagger.io
- * 访问localhost:9001/swagger-ui.html
+ * 访问localhost:9001/admin/swagger-ui.html
  *
  * @author xiake
  */

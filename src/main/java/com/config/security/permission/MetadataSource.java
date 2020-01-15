@@ -44,7 +44,7 @@ public class MetadataSource implements FilterInvocationSecurityMetadataSource {
         Set<String> values = new HashSet<>();
         for (Menu menu : menus) {
             //url匹配
-            System.out.println(antPath.match(menu.getPath(), requestUrl) + " + " + menu.getPath() +" + ");
+            System.out.println(antPath.match(menu.getUrl(), requestUrl) + " + " + menu.getUrl() +" + ");
             if (antPath.match(menu.getUrl(), requestUrl) && menu.getRoles().size() > 0) {
                 List<Role> roles = menu.getRoles();
                 int size = roles.size();

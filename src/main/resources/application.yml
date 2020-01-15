@@ -24,7 +24,7 @@ swagger:
 
 mybatis-plus:
   mapper-locations: classpath:mapping/*Mapper.xml
-  type-aliases-package: com.modules.sys.entity
+  type-aliases-package: com.modules.sys.entity,com.modules.common.entity
   global-config:
     db-column-underline: true
   configuration:
