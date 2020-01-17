@@ -1,6 +1,6 @@
 package com.modules.sys.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.modules.sys.entity.Role;
 import com.modules.sys.entity.User;
 import com.modules.sys.mapper.RoleMapper;
@@ -46,11 +46,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             user.setRoles(roles);
         }
         return user;
-    }
-
-    @Override
-    public void insertUser() {
-        userMapper.insertUser("min","dd");
     }
 
 }

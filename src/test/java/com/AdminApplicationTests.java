@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class AdminApplicationTests {
 
 	@Test
-	public void contextLoads() {
+	void contextLoads() {
 	}
+
 }

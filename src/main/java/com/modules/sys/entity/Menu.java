@@ -1,7 +1,7 @@
 package com.modules.sys.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableName;
 import com.base.BaseEntity;
 import com.common.constant.SysConstants;
 import io.swagger.annotations.ApiModel;

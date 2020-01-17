@@ -1,8 +1,7 @@
 package com.modules.sys.entity;
 
-
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableName;
 import com.base.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -36,7 +35,7 @@ public class User extends BaseEntity {
     @ApiModelProperty("手机号")
     private String mobile;
 
-    @ApiModelProperty("备注")
+    @ApiModelProperty("评论")
     private String remark;
 
     @ApiModelProperty("地址")

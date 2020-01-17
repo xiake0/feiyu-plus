@@ -1,6 +1,6 @@
 package com.modules.common.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.modules.common.entity.Dictionary;
 import com.modules.common.mapper.DictionaryMapper;
 import com.modules.common.service.DictionaryService;
