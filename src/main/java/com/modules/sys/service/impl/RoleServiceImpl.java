@@ -1,6 +1,6 @@
 package com.modules.sys.service.impl;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.modules.sys.entity.Role;
 import com.modules.sys.mapper.RoleMapper;
 import com.modules.sys.service.RoleService;

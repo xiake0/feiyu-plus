@@ -1,6 +1,6 @@
 package com.modules.sys.service.impl;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.common.constant.SysConstants;
 import com.modules.sys.entity.Menu;
 import com.modules.sys.mapper.MenuMapper;
