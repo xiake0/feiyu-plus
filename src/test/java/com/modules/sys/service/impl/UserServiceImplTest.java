@@ -17,10 +17,12 @@ public class UserServiceImplTest {
 
     @Test
     public void insert() throws Exception {
+        userService.insert();
     }
 
     @Test
     public void delete() throws Exception {
+        userService.delete();
     }
 
 }

@@ -3,7 +3,6 @@ package com.config.mybatis;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.common.constant.SysConstants;
 import com.common.utils.UserDetailsUtils;
-import com.utils.SnowFlakeUtil;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
@@ -21,16 +20,25 @@ import java.util.Date;
 public class MetaHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
-        this.setFieldValByName("id", String.valueOf(SnowFlakeUtil.getFlowIdInstance().nextId()), metaObject);
-        this.setFieldValByName("create_time", new Date(), metaObject);
-        this.setFieldValByName("create_by", UserDetailsUtils.getCurrentUserDetails().getUsername(),metaObject);
-        this.setFieldValByName("del_flag", SysConstants.STATUS_NORMAL, metaObject);
+        if (metaObject.hasGetter(SysConstants.CREATE_TIME)) {
+            this.setFieldValByName(SysConstants.CREATE_TIME, new Date(), metaObject);
+        }
+//        if (metaObject.hasGetter(SysConstants.CREATE_BY)) {
+//            this.setFieldValByName(SysConstants.CREATE_BY, UserDetailsUtils.getCurrentUserDetails().getUsername(), metaObject);
+//        }
+        if (metaObject.hasGetter(SysConstants.DEL_FLAG)) {
+            System.out.println(SysConstants.STATUS_NORMAL);
+            this.setFieldValByName(SysConstants.DEL_FLAG, SysConstants.STATUS_NORMAL, metaObject);
+        }
     }
 
     @Override
     public void updateFill(MetaObject metaObject) {
-        this.setFieldValByName("update_time",new Date(),metaObject);
-        this.setFieldValByName("update_by",UserDetailsUtils.getCurrentUserDetails().getUsername(),metaObject);
+        if (null != this.getFieldValByName(SysConstants.UPDATE_TIME, metaObject)) {
+            this.setFieldValByName(SysConstants.UPDATE_TIME, new Date(), metaObject);
+        }
+        if (null != this.getFieldValByName(SysConstants.UPDATE_BY, metaObject)) {
+            this.setFieldValByName(SysConstants.UPDATE_BY, UserDetailsUtils.getCurrentUserDetails().getUsername(), metaObject);
+        }
     }
-
 }

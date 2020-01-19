@@ -53,4 +53,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         userMapper.insertUser("min","dd");
     }
 
+    @Override
+    public void insert(){
+        User user=new User();
+        user.setUsername("min");
+        user.setPassword("s");
+        userMapper.insert(user);
+    }
+
+    @Override
+    public void delete(){
+        userMapper.deleteById("231344695261794304");
+    }
+
 }

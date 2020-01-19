@@ -11,4 +11,6 @@ import com.modules.sys.entity.User;
 public interface UserService extends IService<User> {
     User getUserByUsername(String username);
     void insertUser();
+    void insert();
+    void delete();
 }
