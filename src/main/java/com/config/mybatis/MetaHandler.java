@@ -1,6 +1,6 @@
 package com.config.mybatis;
 
-import com.baomidou.mybatisplus.mapper.MetaObjectHandler;
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.common.constant.SysConstants;
 import com.common.utils.UserDetailsUtils;
 import com.utils.SnowFlakeUtil;
@@ -18,7 +18,7 @@ import java.util.Date;
  * @Description:
  **/
 @Component
-public class MetaHandler extends MetaObjectHandler {
+public class MetaHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         this.setFieldValByName("id", String.valueOf(SnowFlakeUtil.getFlowIdInstance().nextId()), metaObject);
