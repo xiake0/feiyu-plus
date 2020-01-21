@@ -3,7 +3,9 @@ package com.base;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.utils.SnowFlakeUtil;
 import lombok.Data;
@@ -24,8 +26,8 @@ public abstract class BaseEntity extends Model implements Serializable {
     @TableField(value = "id")
     private String id = String.valueOf(SnowFlakeUtil.getFlowIdInstance().nextId());
 
-    @JsonIgnore
     @TableField(value = "create_time", fill = FieldFill.INSERT)
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     @JsonIgnore
@@ -34,12 +36,15 @@ public abstract class BaseEntity extends Model implements Serializable {
 
     @JsonIgnore
     @TableField(value = "update_time", fill = FieldFill.UPDATE)
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     @JsonIgnore
     @TableField(value = "update_by", fill = FieldFill.UPDATE)
     private Date updateBy;
 
+    @JsonIgnore
+    @TableLogic
     @TableField(value = "del_flag", fill = FieldFill.INSERT)
     private Integer delFlag;
 }

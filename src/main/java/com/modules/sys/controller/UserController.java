@@ -1,5 +1,6 @@
 package com.modules.sys.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.common.utils.ResultUtil;
 import com.common.utils.UserDetailsUtils;
 import com.common.vo.DateVo;
@@ -13,8 +14,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * @Author: xiake
@@ -44,18 +43,11 @@ public class UserController {
 
     @GetMapping("/getByCondition")
     @ApiOperation(value = "分页获取用户")
-    public Result<List<User>> getByCondition(@RequestBody User user,
-                                             @RequestBody DateVo dateVo,
-                                             @RequestBody PageVo pageVo) {
-
-        return  null;
+    public Result<IPage<User>> getByCondition(@RequestBody(required = false) User user,
+                                             @ModelAttribute DateVo dateVo,
+                                             @ModelAttribute PageVo pageVo) {
+        IPage<User> iPage =userService.getByCondition(pageVo,user,dateVo);
+        return new ResultUtil<IPage<User>>().setData(iPage);
     }
-
-    @PostMapping("/add")
-    @ApiOperation(value = "add")
-    public void add(){
-       userService.insertUser();
-    }
-
 
 }

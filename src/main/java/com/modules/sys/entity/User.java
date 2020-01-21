@@ -27,10 +27,10 @@ public class User extends BaseEntity {
     @ApiModelProperty("登录密码")
     private String password;
 
-    @ApiModelProperty("用户状态")
-    private Boolean status;
+    @ApiModelProperty("用户类型")
+    private Integer type;
 
-    @ApiModelProperty("可用 0")
+    @ApiModelProperty("用户状态，可用 1")
     private Boolean enabled;
 
     @ApiModelProperty("手机号")

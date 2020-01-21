@@ -1,6 +1,10 @@
 package com.modules.sys.service.impl;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.common.vo.DateVo;
+import com.common.vo.PageVo;
 import com.modules.sys.entity.Role;
 import com.modules.sys.entity.User;
 import com.modules.sys.mapper.RoleMapper;
@@ -48,22 +52,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return user;
     }
 
+    /**
+     * 根据条件分页查询用户
+     *
+     * @param page
+     * @param user
+     * @param dateVo
+     * @param order
+     * @return
+     */
     @Override
-    public void insertUser() {
-        userMapper.insertUser("min","dd");
-    }
-
-    @Override
-    public void insert(){
-        User user=new User();
-        user.setUsername("min");
-        user.setPassword("s");
-        userMapper.insert(user);
-    }
-
-    @Override
-    public void delete(){
-        userMapper.deleteById("231344695261794304");
+    public IPage<User> getByCondition(PageVo pageVo, User user, DateVo dateVo) {
+        Page<User> userPage = new Page<>(pageVo.getPageNumber(), pageVo.getPageSize());
+        IPage<User> iPage = userMapper.getByCondition(userPage, user, dateVo, pageVo.getSort(), pageVo.getOrder());
+        return iPage;
     }
 
 }

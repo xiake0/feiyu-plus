@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  * ctrl+alt+L格式化代码
- * 自动字段填充的组件配置
+ * 自动字段填充和逻辑删除的组件配置，只适用于内置的insert和update
  *
  * @Author: xiake
  * @Date: 2019/12/18 23:41
@@ -23,11 +23,10 @@ public class MetaHandler implements MetaObjectHandler {
         if (metaObject.hasGetter(SysConstants.CREATE_TIME)) {
             this.setFieldValByName(SysConstants.CREATE_TIME, new Date(), metaObject);
         }
-//        if (metaObject.hasGetter(SysConstants.CREATE_BY)) {
-//            this.setFieldValByName(SysConstants.CREATE_BY, UserDetailsUtils.getCurrentUserDetails().getUsername(), metaObject);
-//        }
+        if (metaObject.hasGetter(SysConstants.CREATE_BY)) {
+            this.setFieldValByName(SysConstants.CREATE_BY, UserDetailsUtils.getCurrentUserDetails().getUsername(), metaObject);
+        }
         if (metaObject.hasGetter(SysConstants.DEL_FLAG)) {
-            System.out.println(SysConstants.STATUS_NORMAL);
             this.setFieldValByName(SysConstants.DEL_FLAG, SysConstants.STATUS_NORMAL, metaObject);
         }
     }

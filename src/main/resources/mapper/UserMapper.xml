@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.modules.sys.mapper.UserMapper">
+
+    <select id="getByCondition" resultType="com.modules.sys.entity.User">
+        SELECT id,username,password,avatar,address,mobile,gender,type,enabled,create_time,remark
+        FROM t_user WHERE 1=1
+        <if test="u!=null ">
+            <if test="u.username!=null and u.username!=''">
+                and username like CONCAT('%', #{u.username}, '%')
+            </if>
+            <if test="u.mobile!=null and u.mobile!=''">
+                and mobile=#{u.mobile}
+            </if>
+            <if test="u.address!=null and u.address!=''">
+                and address=#{u.address}
+            </if>
+            <if test="u.gender!=null and u.gender!=''">
+                and gender=#{u.gender}
+            </if>
+            <if test="u.type!=null and u.type!=''">
+                and gender=#{u.type}
+            </if>
+            <if test="u.enabled!=null and u.enabled!=''">
+                and enabled=#{u.enabled}
+            </if>
+            <if test="d.startDate!=null and d.startDate!=''">
+                and create_time &gt;= #{d.startDate}
+            </if>
+            <if test="d.endDate!=null and d.endDate!=''">
+                and create_time &lt;= #{d.endDate}
+            </if>
+            <if test="s!=null and s!=''">
+                order by ${s}
+            </if>
+            <if test="o!=null and o!=''">
+                ${o}
+            </if>
+        </if>
+    </select>
+
+</mapper>

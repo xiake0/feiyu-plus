@@ -60,11 +60,6 @@ public final class SysConstants {
     public final static String UPDATE_BY = "updateBy";
 
     /**
-     * id
-     */
-    public final static String ID = "id";
-
-    /**
      * 删除标志
      */
     public final static String DEL_FLAG = "delFlag";
