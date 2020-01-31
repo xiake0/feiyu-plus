@@ -32,7 +32,7 @@ public abstract class BaseEntity extends Model implements Serializable {
 
     @JsonIgnore
     @TableField(value = "create_by", fill = FieldFill.INSERT)
-    private Date createBy;
+    private String createBy;
 
     @JsonIgnore
     @TableField(value = "update_time", fill = FieldFill.UPDATE)
@@ -41,7 +41,7 @@ public abstract class BaseEntity extends Model implements Serializable {
 
     @JsonIgnore
     @TableField(value = "update_by", fill = FieldFill.UPDATE)
-    private Date updateBy;
+    private String updateBy;
 
     @JsonIgnore
     @TableLogic

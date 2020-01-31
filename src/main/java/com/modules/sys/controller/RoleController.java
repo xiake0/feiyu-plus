@@ -1,7 +1,8 @@
 package com.modules.sys.controller;
 
 import com.common.utils.ResultUtil;
-import com.modules.sys.entity.Menu;
+import com.common.vo.Result;
+import com.modules.sys.entity.Role;
 import com.modules.sys.service.RoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,9 +27,9 @@ public class RoleController {
     private RoleService roleService;
 
     @ApiOperation(value = "获取角色权限")
-    @GetMapping("/getRoleMenuList")
-    public ResultUtil<List<Menu>> getRoleMenuList() {
-        //TODO
-        return null;
+    @GetMapping("/getAllRoles")
+    public Result<List<Role>> getAllRoles() {
+
+        return new ResultUtil<List<Role>>().setData(roleService.getAllRoles());
     }
 }

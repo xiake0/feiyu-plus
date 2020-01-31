@@ -50,4 +50,11 @@ public class UserController {
         return new ResultUtil<IPage<User>>().setData(iPage);
     }
 
+
+    @PostMapping("/add")
+//    @ApiOperation(value = "添加用户")
+    public Result<Object> addUser(@ModelAttribute User user){
+     userService.addUser(user);
+     return new ResultUtil<Object>().setSuccessMsg("success");
+    }
 }

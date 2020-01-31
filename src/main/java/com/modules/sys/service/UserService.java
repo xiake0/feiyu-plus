@@ -15,4 +15,6 @@ public interface UserService extends IService<User> {
     User getUserByUsername(String username);
 
     IPage<User> getByCondition(PageVo pageVo, User user, DateVo dateVo);
+
+    void addUser(User user);
 }

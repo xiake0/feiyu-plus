@@ -11,6 +11,7 @@ import com.modules.sys.mapper.RoleMapper;
 import com.modules.sys.mapper.UserMapper;
 import com.modules.sys.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +31,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Autowired
     private RoleMapper roleMapper;
+
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 
     /**
      * 根据用户名获取用户
@@ -66,6 +70,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         Page<User> userPage = new Page<>(pageVo.getPageNumber(), pageVo.getPageSize());
         IPage<User> iPage = userMapper.getByCondition(userPage, user, dateVo, pageVo.getSort(), pageVo.getOrder());
         return iPage;
+    }
+
+    /**
+     * 添加新用户
+     *
+     * @param user
+     */
+    @Override
+    public void addUser(User user) {
+        user.setPassword(encoder.encode(user.getPassword()));
+        userMapper.insert(user);
     }
 
 }

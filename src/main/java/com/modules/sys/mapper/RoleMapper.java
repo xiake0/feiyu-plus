@@ -22,4 +22,7 @@ public interface RoleMapper extends BaseMapper<Role> {
     @Select("select * from t_role,t_role_menu where t_role.id = t_role_menu.role_id and " +
             "menu_id = #{menuId}")
     List<Role> getRoleByMenuId(String menuId);
+
+    @Select("select id,name,description from t_role where del_flag = 0")
+    List<Role> getAllRoles();
 }

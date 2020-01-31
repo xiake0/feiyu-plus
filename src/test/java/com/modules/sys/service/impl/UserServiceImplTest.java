@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+@SuppressWarnings("all")
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = AdminApplication.class)
 public class UserServiceImplTest {
@@ -43,5 +44,13 @@ public class UserServiceImplTest {
         System.out.println(iPage.getTotal());
         System.out.println(iPage.getRecords());
         System.out.println(iPage.toString());
+    }
+
+    @Test
+    public void add(){
+        User user=new User();
+        user.setUsername("ling");
+        user.setPassword("244511");
+        userMapper.insert(user);
     }
 }

@@ -19,6 +19,7 @@ import java.util.List;
  * @Description:
  **/
 @Service
+@SuppressWarnings("all")
 public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements MenuService {
 
     @Autowired
