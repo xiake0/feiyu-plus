@@ -25,4 +25,5 @@ public interface RoleMapper extends BaseMapper<Role> {
 
     @Select("select id,name,description from t_role where del_flag = 0")
     List<Role> getAllRoles();
+
 }

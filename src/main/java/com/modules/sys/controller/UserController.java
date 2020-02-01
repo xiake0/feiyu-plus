@@ -7,6 +7,7 @@ import com.common.vo.DateVo;
 import com.common.vo.PageVo;
 import com.common.vo.Result;
 import com.modules.sys.entity.User;
+import com.modules.sys.service.UserRoleService;
 import com.modules.sys.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,6 +29,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserRoleService userRoleService;
+
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @GetMapping("/currentUser")
@@ -44,17 +48,23 @@ public class UserController {
     @GetMapping("/getByCondition")
     @ApiOperation(value = "分页获取用户")
     public Result<IPage<User>> getByCondition(@RequestBody(required = false) User user,
-                                             @ModelAttribute DateVo dateVo,
-                                             @ModelAttribute PageVo pageVo) {
-        IPage<User> iPage =userService.getByCondition(pageVo,user,dateVo);
+                                              @ModelAttribute DateVo dateVo,
+                                              @ModelAttribute PageVo pageVo) {
+        IPage<User> iPage = userService.getByCondition(pageVo, user, dateVo);
         return new ResultUtil<IPage<User>>().setData(iPage);
     }
 
 
     @PostMapping("/add")
 //    @ApiOperation(value = "添加用户")
-    public Result<Object> addUser(@ModelAttribute User user){
-     userService.addUser(user);
-     return new ResultUtil<Object>().setSuccessMsg("success");
+    public Result<Object> addUser(@ModelAttribute User user,
+                                  @RequestParam(required = false) String[] roleIds) {
+
+        if(userService.getCounts(user.getUsername())>0){
+         return new ResultUtil<Object>().setErrorMsg("已存在该用户");
+        }
+        userService.addUser(user);
+        userRoleService.addUserRole(user.getId(),roleIds);
+        return new ResultUtil<Object>().setSuccessMsg("添加成功");
     }
 }

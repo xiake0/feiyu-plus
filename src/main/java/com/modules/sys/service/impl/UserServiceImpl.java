@@ -46,7 +46,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public User getUserByUsername(String username) {
         User user = userMapper.getUserByUsername(username);
         System.out.println(user);
-        System.out.println(user.getId());
         List<Role> roles = roleMapper.getRolesByUserId(user.getId());
         System.out.println(roles);
         //TODO 需添加异常处理
@@ -81,6 +80,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public void addUser(User user) {
         user.setPassword(encoder.encode(user.getPassword()));
         userMapper.insert(user);
+    }
+
+    /**
+     * 验证数据库是否存在该用户
+     *
+     * @param username
+     * @return
+     */
+    @Override
+    public Integer getCounts(String username) {
+        return userMapper.getCounts(username);
     }
 
 }

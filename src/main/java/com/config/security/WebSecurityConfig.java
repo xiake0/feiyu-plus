@@ -91,17 +91,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         httpServletResponse.setContentType("application/json;charset=utf-8");
                         Result<Object> result = null;
                         if (e instanceof BadCredentialsException || e instanceof UsernameNotFoundException) {
-                            result = new ResultUtil<Object>().setErrorMsg(401, "账号或密码输入错误");
+                            result = new ResultUtil<Object>().setErrorMsg("账号或密码输入错误");
                         } else if (e instanceof LockedException) {
-                            result = new ResultUtil<Object>().setErrorMsg(401, "账号被锁定，请联系管理员");
+                            result = new ResultUtil<Object>().setErrorMsg( "账号被锁定，请联系管理员");
                         } else if (e instanceof CredentialsExpiredException) {
-                            result = new ResultUtil<Object>().setErrorMsg(401, "密码过期");
+                            result = new ResultUtil<Object>().setErrorMsg( "密码过期");
                         } else if (e instanceof AccountExpiredException) {
-                            result = new ResultUtil<Object>().setErrorMsg(401, "账号过期");
+                            result = new ResultUtil<Object>().setErrorMsg( "账号过期");
                         } else if (e instanceof DisabledException) {
-                            result = new ResultUtil<Object>().setErrorMsg(401, "账号被禁用");
-                        } else result = new ResultUtil<Object>().setErrorMsg(401, "登录失败");
-                        httpServletResponse.setStatus(401);
+                            result = new ResultUtil<Object>().setErrorMsg( "账号被禁用");
+                        } else result = new ResultUtil<Object>().setErrorMsg("登录失败");
                         ObjectMapper om = new ObjectMapper();
                         PrintWriter out = httpServletResponse.getWriter();
                         out.write(om.writeValueAsString(result));

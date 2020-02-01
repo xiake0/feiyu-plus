@@ -21,4 +21,7 @@ public interface UserMapper extends BaseMapper<User> {
     IPage<User> getByCondition(Page<User> page, @Param("u") User user,
                                @Param("d") DateVo dateVo, @Param("s") String sort,
                                @Param("o") String order);
+
+    @Select("select count(*) from t_user where username = #{username}")
+    Integer getCounts(String username);
 }
