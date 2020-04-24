@@ -1,6 +1,8 @@
 package com.modules.sys.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.common.vo.PageVo;
 import com.modules.sys.entity.Role;
 
 import java.util.List;
@@ -12,4 +14,6 @@ import java.util.List;
  **/
 public interface RoleService extends IService<Role> {
     List<Role> getAllRoles();
+
+    IPage<Role> getAll(PageVo pageVo);
 }

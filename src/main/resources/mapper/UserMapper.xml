@@ -4,7 +4,7 @@
 
     <select id="getByCondition" resultType="com.modules.sys.entity.User">
         SELECT id,username,password,avatar,address,mobile,gender,type,enabled,create_time,remark
-        FROM t_user WHERE 1=1
+        FROM t_user WHERE 1=1 and del_flag="0"
         <if test="u!=null ">
             <if test="u.username!=null and u.username!=''">
                 and username like CONCAT('%', #{u.username}, '%')

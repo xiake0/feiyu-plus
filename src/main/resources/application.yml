@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 7001
   servlet:
     context-path: /admin
 spring:
@@ -24,7 +24,7 @@ swagger:
 
 mybatis-plus:
   mapper-locations: classpath:mapper/*Mapper.xml
-  type-aliases-package: com.modules.sys.entity,com.modules.common.entity
+  type-aliases-package: com.modules.sys.entity,com.modules.common.entity,com.modules.video.entity
   global-config:
     db-column-underline: true
     db-config:

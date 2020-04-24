@@ -12,9 +12,9 @@ import lombok.Data;
  * @Description:
  **/
 @Data
-@TableName(value = "t_menu_role")
+@TableName(value = "t_role_menu")
 @ApiModel(value = "角色权限关联")
-public class MenuRole extends BaseEntity {
+public class RoleMenu extends BaseEntity {
 
     @ApiModelProperty(value = "权限id")
     private String menuId;

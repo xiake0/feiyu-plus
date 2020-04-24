@@ -4,7 +4,6 @@ import com.AdminApplication;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.common.vo.DateVo;
 import com.modules.sys.entity.User;
 import com.modules.sys.mapper.UserMapper;
 import org.junit.Test;
@@ -32,19 +31,19 @@ public class UserServiceImplTest {
 
     }
 
-    @Test
-    public void select(){
-        Page<User> page = new Page<>(1, 5);
-        User user =new User();
-        user.setUsername("admin");
-        user.setMobile("tt");
-        DateVo dateVo = new DateVo();
-        dateVo.setStartDate("2019-01-21");
-        IPage<User> iPage=userMapper.getByCondition(page,user,dateVo,"create_time","desc");
-        System.out.println(iPage.getTotal());
-        System.out.println(iPage.getRecords());
-        System.out.println(iPage.toString());
-    }
+//    @Test
+//    public void select(){
+//        Page<User> page = new Page<>(1, 5);
+//        User user =new User();
+//        user.setUsername("admin");
+//        user.setMobile("tt");
+//        DateVo dateVo = new DateVo();
+//        dateVo.setStartDate("2019-01-21");
+//        IPage<User> iPage=userMapper.getByCondition(page,user,dateVo,"create_time","desc");
+//        System.out.println(iPage.getTotal());
+//        System.out.println(iPage.getRecords());
+//        System.out.println(iPage.toString());
+//    }
 
     @Test
     public void add(){

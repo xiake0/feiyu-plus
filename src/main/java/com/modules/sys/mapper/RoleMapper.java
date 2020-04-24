@@ -1,6 +1,8 @@
 package com.modules.sys.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.modules.sys.entity.Role;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -26,4 +28,5 @@ public interface RoleMapper extends BaseMapper<Role> {
     @Select("select id,name,description from t_role where del_flag = 0")
     List<Role> getAllRoles();
 
+    IPage<Role> findAll(Page<Role> page);
 }

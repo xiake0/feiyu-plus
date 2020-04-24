@@ -24,4 +24,7 @@ public interface UserMapper extends BaseMapper<User> {
 
     @Select("select count(*) from t_user where username = #{username}")
     Integer getCounts(String username);
+
+    @Select("select id,username,avatar from t_user where id = #{id} limit 1;")
+    User getUserByUserId(@Param("id") String id);
 }

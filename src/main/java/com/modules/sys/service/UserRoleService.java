@@ -11,4 +11,6 @@ import com.modules.sys.entity.UserRole;
 public interface UserRoleService extends IService<UserRole> {
 
     void addUserRole(String userId,String[] roles);
+
+    void deleteByUserId(String userId);
 }

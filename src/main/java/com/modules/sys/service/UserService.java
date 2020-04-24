@@ -19,4 +19,16 @@ public interface UserService extends IService<User> {
     void addUser(User user);
 
     Integer getCounts(String username);
+
+    User getUserByUserId(String uid);
+
+    void updateUser(User user);
+
+    void enable(User user);
+
+    void disable(User user);
+
+    void delete(String id);
+
+    User findByUsername(String username);
 }

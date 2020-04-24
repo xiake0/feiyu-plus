@@ -1,5 +1,6 @@
 package com.modules.sys.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -56,6 +57,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     /**
+     * 根据用户名获取用户
+     *
+     * @param username
+     * @return
+     */
+    @Override
+    @Transactional
+    public User findByUsername(String username) {
+        User user = userMapper.getUserByUsername(username);
+        return user;
+    }
+
+
+    /**
      * 根据条件分页查询用户
      *
      * @param page
@@ -91,6 +106,45 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public Integer getCounts(String username) {
         return userMapper.getCounts(username);
+    }
+
+    @Override
+    public User getUserByUserId(String uid) {
+        return userMapper.getUserByUserId(uid);
+    }
+
+
+    /**
+     * 修改个人信息
+     * @param user
+     */
+    @Override
+    public void updateUser(User user) {
+
+        UpdateWrapper<User> userUpdateWrapper = new UpdateWrapper<>();
+        userUpdateWrapper.eq("id",user.getId());
+        userMapper.update(user,userUpdateWrapper);
+    }
+
+    @Override
+    public void enable(User user) {
+        UpdateWrapper<User> userUpdateWrapper = new UpdateWrapper<>();
+        user.setEnabled(true);
+        userUpdateWrapper.eq("id",user.getId());
+        userMapper.update(user,userUpdateWrapper);
+    }
+
+    @Override
+    public void disable(User user) {
+        UpdateWrapper<User> userUpdateWrapper = new UpdateWrapper<>();
+        user.setEnabled(false);
+        userUpdateWrapper.eq("id",user.getId());
+        userMapper.update(user,userUpdateWrapper);
+    }
+
+    @Override
+    public void delete(String id) {
+        userMapper.deleteById(id);
     }
 
 }

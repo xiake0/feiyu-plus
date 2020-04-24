@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.modules.video.mapper.PlayerMapper">
+
+    <select id="getByCondition" resultType="com.modules.video.entity.Player">
+        SELECT title,view,url,pic,material,owner_id,introduction,create_time
+        FROM t_player WHERE 1=1 and del_flag="0"
+        <if test="p!=null ">
+            <if test="p.title!=null and p.title!=''">
+                and title like CONCAT('%', #{p.title}, '%')
+            </if>
+            <if test="p.ownerId!=null and p.ownerId!=''">
+                and owner_id=#{p.owner_id}
+            </if>
+            <if test="d.startDate!=null and d.startDate!=''">
+                and create_time &gt;= #{d.startDate}
+            </if>
+            <if test="d.endDate!=null and d.endDate!=''">
+                and create_time &lt;= #{d.endDate}
+            </if>
+            <if test="s!=null and s!=''">
+                order by ${s}
+            </if>
+            <if test="o!=null and o!=''">
+                ${o}
+            </if>
+        </if>
+    </select>
+
+</mapper>

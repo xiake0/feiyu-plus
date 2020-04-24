@@ -34,4 +34,10 @@ public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRole> i
             userRoleMapper.insert(userRole);
         }
     }
+
+    @Override
+    public void deleteByUserId(String userId) {
+         userRoleMapper.deleteByUserId(userId);
+    }
+
 }

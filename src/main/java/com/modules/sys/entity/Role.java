@@ -28,5 +28,5 @@ public class Role extends BaseEntity {
 
     @ApiModelProperty(value = "角色权限")
     @TableField(exist = false)
-    private List<Menu> permissions;
+    private List<RoleMenu> permissions;
 }
